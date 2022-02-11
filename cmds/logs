@@ -1,0 +1,11 @@
+#!/bin/sh
+
+XX=""
+if [ -n "${JOURNAL_DIR}" ]; then
+    XX="-D ${JOURNAL_DIR}"
+fi
+
+# FIXME: to MARK output was captured by docker-py as it fails some times...
+echo MARK
+
+journalctl $XX -u docker -o json "$@"

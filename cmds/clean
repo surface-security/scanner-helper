@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+# FIXME: to MARK output was captured by docker-py as it fails some times...
+echo MARK
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 FILES_TO_DELETE.txt"
+    exit 2
+fi
+
+# FIXME: this should be full of possible issues due to shell
+while IFS= read -r file
+do
+  rm -f -- "$file"
+done < "$1"

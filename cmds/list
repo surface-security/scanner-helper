@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# FIXME: to MARK output was captured by docker-py as it fails some times...
+echo MARK
+
+test -e /output/
+find /output/ -type f
