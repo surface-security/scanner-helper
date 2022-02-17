@@ -1,4 +1,4 @@
-export IMAGE=surfacesecurity/helper:dev
+export IMAGE=${1}
 
 function setup() {
     rm -fr tests/data

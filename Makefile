@@ -1,9 +1,9 @@
+all: test
+
 build:
-	./build.sh
+	docker build -t tmp-$(notdir $(CURDIR)) .
 
-tests:
-	tests/test_list.sh
-	tests/test_logs.sh
-	tests/test_clean.sh
-
-.PHONY: build tests
+test: build
+	tests/test_clean.sh tmp-$(notdir $(CURDIR))
+	tests/test_list.sh tmp-$(notdir $(CURDIR))
+	tests/test_logs.sh tmp-$(notdir $(CURDIR))
