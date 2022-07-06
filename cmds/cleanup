@@ -6,4 +6,4 @@ set -e
 echo MARK
 
 test -e /output/
-find output -depth -type d -empty -delete
+find output -depth -type d -empty -delete -not -path "output/"
