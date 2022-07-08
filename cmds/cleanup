@@ -6,4 +6,4 @@ set -e
 echo MARK
 
 test -e /output/
-find output -depth -type d -empty -delete -not -path "output/"
+find output -depth -type d -ctime +1 -empty -not -path "output" -delete
